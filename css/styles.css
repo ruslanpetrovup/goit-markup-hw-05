@@ -9,6 +9,9 @@
   --filtr: #f5f4fa;
   --border-color: #ececec;
   --icon: #afb1b8;
+  --animation: cubic-bezier(0.4, 0, 0.2, 1);
+  --bg-card: rgba(33, 150, 243, 0.9);
+  --work-bg: rgba(47, 48, 58, 0.8);
 }
 body {
   font-family: 'Roboto', sans-serif;
@@ -18,10 +21,12 @@ h2,
 h3,
 ul,
 li,
-p {
+p,
+a {
   margin: 0;
   padding: 0;
   list-style: none;
+  text-decoration: none;
 }
 /* Шапка */
 .header-page {
@@ -79,7 +84,7 @@ p {
   color: var(--lead-text-color);
   padding-top: 32px;
   padding-bottom: 32px;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--animation);
 }
 .head-link:hover,
 .head-link:focus {
@@ -110,7 +115,7 @@ p {
   text-decoration: none;
   padding: 32px 0;
   display: flex;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--animation);
 }
 .head-contacts .link:focus,
 .head-contacts .link:hover {
@@ -176,7 +181,7 @@ p {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border: none;
   border-radius: 4px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms var(--animation);
 }
 .banner .button:focus,
 .banner .button:hover {
@@ -305,6 +310,28 @@ p {
   margin: 0;
   margin-top: 10px;
 }
+.work-images {
+  position: relative;
+}
+.thumb-work {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--work-bg);
+}
+.work-text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--bg-color);
+  padding: 27px 0;
+}
 .block-item {
   padding: 30px 32px;
   background-color: var(--bg-color);
@@ -321,17 +348,16 @@ p {
 .icon-line .icon-link {
   display: flex;
   overflow: hidden;
+  border-radius: 50%;
   padding: 12px 12px;
   color: var(--icon);
   background-color: var(--bg-color);
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--animation), background-color 250ms var(--animation);
 }
 .icon-line .icon-link:focus,
 .icon-line .icon-link:hover {
   background-color: var(--second-text-color);
   color: var(--bg-color);
-  border-radius: 50%;
   overflow: hidden;
 }
 .icon-line .icon {
@@ -374,6 +400,7 @@ p {
   justify-content: center;
   align-items: center;
   color: var(--icon);
+  transition: color 250ms var(--animation), border 250ms var(--animation);
 }
 .company-link:focus,
 .company-link:hover {
@@ -388,10 +415,6 @@ p {
 .company .icon:hover {
   fill: currentColor;
 }
-/* .company .icon {
-  fill: currentColor;
-} */
-/* Подвал */
 .footer {
   background: var(--hero);
   padding: 60px 0;
@@ -439,6 +462,7 @@ p {
   background-color: var(--footer-icon);
   border-radius: 50%;
   color: var(--bg-color);
+  transition: background-color 250ms var(--animation);
 }
 .footer-link:focus,
 .footer-link:hover {
@@ -487,6 +511,7 @@ p {
   line-height: 1.62;
   border-radius: 4px;
   cursor: pointer;
+  transition: color 250ms var(--animation), background-color 250ms var(--animation);
 }
 .filtr .button:focus,
 .filtr .button:hover {
@@ -495,7 +520,6 @@ p {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
-  transition: 340ms;
 }
 .activebut[type='button'] {
   background-color: var(--second-text-color);
@@ -560,4 +584,31 @@ p {
 .block-product {
   padding: 20px 24px;
   border: 1px solid #eeeeee;
+}
+.product-images {
+  position: relative;
+  overflow: hidden;
+}
+.thumb {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 63px 24px;
+  top: 0;
+  left: 0;
+  background-color: var(--bg-card);
+  transform: translateY(101%);
+  transition: transform 250ms var(--animation);
+}
+.product .link:hover .thumb {
+  transform: translateY(0);
+}
+.thumb-text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+  color: var(--bg-color);
 }
