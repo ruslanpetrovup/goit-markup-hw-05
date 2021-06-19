@@ -12,6 +12,7 @@
   --animation: cubic-bezier(0.4, 0, 0.2, 1);
   --bg-card: rgba(33, 150, 243, 0.9);
   --work-bg: rgba(47, 48, 58, 0.8);
+  --black-modal: rgba(0, 0, 0, 0.2);
 }
 body {
   font-family: 'Roboto', sans-serif;
@@ -611,4 +612,46 @@ a {
   line-height: 1.55;
   letter-spacing: 0.03em;
   color: var(--bg-color);
+}
+/* Черный фон */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--black-modal);
+  opacity: 1;
+  transition: opacity 800ms linear;
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+/* Модальное окно */
+.modal {
+  position: absolute;
+  min-width: 528px;
+  min-height: 581px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--bg-color);
+}
+.button-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--bg-color);
+}
+.button-close .close {
+  width: 18px;
+  height: 18px;
 }
