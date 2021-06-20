@@ -446,6 +446,7 @@ a {
   color: var(--footer-link);
   text-decoration: none;
   margin-top: 10px;
+  letter-spacing: 0.03em;
 }
 .soc-footer {
   margin-left: 70px;
